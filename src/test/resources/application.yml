@@ -1,12 +1,12 @@
 quarkus:
   datasource:
-    url: jdbc:postgresql://localhost:5432/jynx-db
-    driver: org.postgresql.Driver
-    username: jynx-username
-    password: jynx-password
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/jynx-db}
+    driver: ${DATABASE_DRIVER:org.postgresql.Driver}
+    username: ${DATABASE_USERNAME:jynx-username}
+    password: ${DATABASE_PASSWORD:jynx-password}
 
 rabbitmq:
-  host: localhost
-  vhost: jynx
-  username: jynx-username
-  password: jynx-password
+  host: ${RABBITMQ_HOST:localhost}
+  vhost: ${RABBITMQ_VHOST:jynx}
+  username: ${RABBITMQ_USERNAME:jynx-username}
+  password: ${RABBITMQ_PASSWORD:jynx-password}

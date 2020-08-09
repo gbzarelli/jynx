@@ -1,6 +1,6 @@
 quarkus:
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/jynx-db}
+    url: ${DATABASE_URL}
     driver: ${DATABASE_DRIVER:org.postgresql.Driver}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
