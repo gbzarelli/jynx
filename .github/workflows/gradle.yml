@@ -39,12 +39,6 @@ jobs:
           RABBITMQ_DEFAULT_USER: jynx-username
           RABBITMQ_DEFAULT_PASS: jynx-password
           RABBITMQ_DEFAULT_VHOST: jynx
-        # Set health checks to wait until rabbitmq has started
-        options: >-
-          --health-cmd rmq_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
            
     steps:
     - uses: actions/checkout@v2
