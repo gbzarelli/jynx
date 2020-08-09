@@ -13,7 +13,39 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: jynx-password
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      # Label used to access the service container
 
+      rabbitmq:
+        # Docker Hub image
+        image: rabbitmq:3-management-alpine
+        # Provide the password for rabbitmq
+        env:
+          RABBITMQ_DEFAULT_USER: jynx-username
+          RABBITMQ_DEFAULT_PASS: jynx-password
+          RABBITMQ_DEFAULT_VHOST: jynx
+        # Set health checks to wait until rabbitmq has started
+        options: >-
+          --health-cmd rmq_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+           
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
