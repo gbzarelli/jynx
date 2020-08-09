@@ -5,8 +5,10 @@ import br.com.helpdev.jynx.core.entity.RegisterImage;
 import br.com.helpdev.jynx.core.entity.Status;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorDatabase;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.UUID;
 
+@ApplicationScoped
 class LabelDetectorDatabaseImpl implements LabelDetectorDatabase {
 
     @Override

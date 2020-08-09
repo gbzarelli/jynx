@@ -1,0 +1,12 @@
+quarkus:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jynx-db
+    driver: org.postgresql.Driver
+    username: jynx-username
+    password: jynx-password
+
+rabbitmq:
+  host: localhost
+  vhost: jynx
+  username: jynx-username
+  password: jynx-password

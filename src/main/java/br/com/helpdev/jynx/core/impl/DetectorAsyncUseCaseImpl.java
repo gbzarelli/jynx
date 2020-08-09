@@ -8,9 +8,11 @@ import br.com.helpdev.jynx.core.interfaces.LabelDetectorDatabase;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorPublisher;
 import br.com.helpdev.jynx.core.interfaces.ImageStorage;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.InputStream;
 
+@ApplicationScoped
 class DetectorAsyncUseCaseImpl implements DetectorAsyncUseCase {
 
     private final ImageStorage imageStorage;

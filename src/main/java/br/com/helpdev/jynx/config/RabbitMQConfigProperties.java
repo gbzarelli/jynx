@@ -13,7 +13,7 @@ import lombok.ToString;
 public class RabbitMQConfigProperties {
 
     private String host;
-    private Integer port = ConnectionFactory.DEFAULT_AMQP_OVER_SSL_PORT;
+    private Integer port = ConnectionFactory.DEFAULT_AMQP_PORT;
     private String vhost;
     private String username;
     private String password;

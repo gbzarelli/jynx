@@ -11,21 +11,20 @@ services:
     networks:
       - jynx-network
     environment:
-      RABBITMQ_DEFAULT_USER: usr_jynx
-      RABBITMQ_DEFAULT_PASS: pass_jynx
+      RABBITMQ_DEFAULT_USER: jynx-username
+      RABBITMQ_DEFAULT_PASS: jynx-password
       RABBITMQ_DEFAULT_VHOST: jynx
 
-  mysql:
-    image: mysql:5.7
-    container_name: jynx-mysql
+  postgredb:
+    image: postgres:alpine
+    container_name: jynx-postgre-db
     restart: always
     environment:
-      MYSQL_DATABASE: jynx
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_USER: jynx
-      MYSQL_PASSWORD: jynx
+      POSTGRES_PASSWORD: jynx-password
+    expose:
+      - 5432
     ports:
-      - 3306:3306
+      - 5432:5432
     networks:
       - jynx-network
 
