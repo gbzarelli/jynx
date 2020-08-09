@@ -8,7 +8,7 @@ import java.nio.file.Path;
 class LocalImageStorageImpl implements ImageStorage {
 
     @Override
-    public Path write(InputStream image) {
+    public Path write(final InputStream image) {
         return null;
     }
 

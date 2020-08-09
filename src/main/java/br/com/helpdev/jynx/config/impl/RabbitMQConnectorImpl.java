@@ -41,7 +41,7 @@ class RabbitMQConnectorImpl implements RabbitMQConnector {
         try {
             channel.close();
             connection.close();
-        } catch (Exception ignored) {
+        } catch (final Exception ignored) {
         }
     }
 
