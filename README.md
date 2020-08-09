@@ -2,6 +2,7 @@
 ![Forks](https://img.shields.io/github/forks/gbzarelli/jynx.svg) 
 ![Stars](https://img.shields.io/github/stars/gbzarelli/jynx.svg) 
 ![Release Version](https://img.shields.io/github/release/gbzarelli/jynx.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/292910e8ba154dcf8fb6eb6198e61cc0)](https://app.codacy.com/manual/gbzarelli/jynx?utm_source=github.com&utm_medium=referral&utm_content=gbzarelli/jynx&utm_campaign=Badge_Grade_Dashboard)
 
 # Jynx ![Build WorkFlow](https://github.com/gbzarelli/jynx/workflows/Jynx%20Build%20Workflow/badge.svg)
 
@@ -25,7 +26,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 - [`GCP Vision`](https://cloud.google.com/vision) - Google Cloud Machine Learn
 - [`GCP Storage`](https://cloud.google.com/storage) - Google Cloud Storage
 - [`ORM Hibernate / Panache`](https://quarkus.io/guides/hibernate-orm-panache) - Hibernate ORM is the de facto JPA implementation
-- [`GitHub Actions`](https://docs.github.com/en/actions) - Automate, customize, and execute your software development workflows (CI/CD)
+- [`GitHub Actions`](https://docs.github.com/en/actions) - Automate, customize, and execute your software development workflows (CI/CD)br
 
 ## Running the application in dev mode
 
