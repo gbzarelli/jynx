@@ -19,8 +19,13 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ## Technologies
 
-- Quarkus - Framework
-....
+- [`Quarkus`](https://quarkus.io/) - Framework
+- [`PostgreSQL`](https://www.postgresql.org) - Database
+- [`RabbitMQ`](https://www.rabbitmq.com) - Messaging Server
+- [`GCP Vision`](https://cloud.google.com/vision) - Google Cloud Machine Learn
+- [`GCP Storage`](https://cloud.google.com/storage) - Google Cloud Storage
+- [`ORM Hibernate / Panache`](https://quarkus.io/guides/hibernate-orm-panache) - Hibernate ORM is the de facto JPA implementation
+- [`GitHub Actions`](https://docs.github.com/en/actions) - Automate, customize, and execute your software development workflows (CI/CD)
 
 ## Running the application in dev mode
 
