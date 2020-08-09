@@ -3,7 +3,7 @@
 ![Stars](https://img.shields.io/github/stars/gbzarelli/jynx.svg) 
 ![Release Version](https://img.shields.io/github/release/gbzarelli/jynx.svg)
 
-# Jynx ![WorkFlow](https://github.com/gbzarelli/jynx/workflows/.github/workflows/gradle.yml/badge.svg)
+# Jynx ![Build WorkFlow](https://github.com/gbzarelli/jynx/workflows/Jynx%20Build%20Workflow/badge.svg)
 
 <p align="center">
     <img src="./images/jynx.png" height="450">
