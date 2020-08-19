@@ -1,12 +1,12 @@
 package br.com.helpdev.jynx.config.impl;
 
-import br.com.helpdev.jynx.config.RabbitMQConfigProperties;
 import br.com.helpdev.jynx.config.RabbitMQConnector;
+import br.com.helpdev.jynx.config.properties.RabbitMQConfigProperties;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import io.quarkus.runtime.ShutdownEvent;
-import io.quarkus.runtime.StartupEvent;
+import io.quarkus.runtime.Startup;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
+@Startup
 @ApplicationScoped
 class RabbitMQConnectorImpl implements RabbitMQConnector {
 
@@ -22,7 +23,7 @@ class RabbitMQConnectorImpl implements RabbitMQConnector {
     private Channel channel;
 
     @Inject
-    RabbitMQConnectorImpl(final RabbitMQConfigProperties config) {
+    RabbitMQConnectorImpl(final RabbitMQConfigProperties config) throws IOException, TimeoutException {
         factory = new ConnectionFactory();
         factory.setHost(config.getHost());
         factory.setPort(config.getPort());
@@ -30,9 +31,10 @@ class RabbitMQConnectorImpl implements RabbitMQConnector {
         factory.setUsername(config.getUsername());
         factory.setPassword(config.getPassword());
         factory.setAutomaticRecoveryEnabled(true);
+        init();
     }
 
-    void onStart(@Observes final StartupEvent ev) throws IOException, TimeoutException {
+    void init() throws IOException, TimeoutException {
         connection = factory.newConnection();
         channel = connection.createChannel();
     }

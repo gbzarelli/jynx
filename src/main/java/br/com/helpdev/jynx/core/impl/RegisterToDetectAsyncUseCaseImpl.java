@@ -1,6 +1,6 @@
 package br.com.helpdev.jynx.core.impl;
 
-import br.com.helpdev.jynx.core.DetectorAsyncUseCase;
+import br.com.helpdev.jynx.core.RegisterToDetectAsyncUseCase;
 import br.com.helpdev.jynx.core.entity.LabelDetectorStatus;
 import br.com.helpdev.jynx.core.entity.RegisterImage;
 import br.com.helpdev.jynx.core.entity.Status;
@@ -13,16 +13,16 @@ import javax.inject.Inject;
 import java.io.InputStream;
 
 @ApplicationScoped
-class DetectorAsyncUseCaseImpl implements DetectorAsyncUseCase {
+class RegisterToDetectAsyncUseCaseImpl implements RegisterToDetectAsyncUseCase {
 
     private final ImageStorage imageStorage;
     private final LabelDetectorDatabase database;
     private final LabelDetectorPublisher publisher;
 
     @Inject
-    DetectorAsyncUseCaseImpl(final ImageStorage imageStorage,
-                             final LabelDetectorDatabase database,
-                             final LabelDetectorPublisher publisher) {
+    RegisterToDetectAsyncUseCaseImpl(final ImageStorage imageStorage,
+                                     final LabelDetectorDatabase database,
+                                     final LabelDetectorPublisher publisher) {
         this.imageStorage = imageStorage;
         this.database = database;
         this.publisher = publisher;

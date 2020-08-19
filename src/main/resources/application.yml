@@ -10,3 +10,40 @@ rabbitmq:
   vhost: ${RABBITMQ_VHOST}
   username: ${RABBITMQ_USERNAME}
   password: ${RABBITMQ_PASSWORD}
+
+  publisher:
+    to-process:
+      exchange:
+        name: jynx-to-process-image-exchange
+        type: topic
+        durable: true
+      routing-key: uuid
+
+    processed:
+      exchange:
+        name: jynx-processed-image-exchange
+        type: topic
+        durable: true
+      routing-key: uuid
+
+  subscriber:
+    queue:
+      name: label-detect-queue
+      durable: true
+    routing-key: uuid
+
+# Develop configuration file:
+
+"%dev":
+  quarkus:
+    datasource:
+      url: jdbc:postgresql://localhost:5432/jynx-db
+      driver: org.postgresql.Driver
+      username: jynx-username
+      password: jynx-password
+
+  rabbitmq:
+    host: localhost
+    vhost: jynx
+    username: jynx-username
+    password: jynx-password

@@ -1,4 +1,4 @@
-package br.com.helpdev.jynx.config;
+package br.com.helpdev.jynx.config.properties;
 
 import com.rabbitmq.client.ConnectionFactory;
 import io.quarkus.arc.config.ConfigProperties;
