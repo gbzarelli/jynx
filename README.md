@@ -28,6 +28,21 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 - [`ORM Hibernate / Panache`](https://quarkus.io/guides/hibernate-orm-panache) - Hibernate ORM is the de facto JPA implementation
 - [`GitHub Actions`](https://docs.github.com/en/actions) - Automate, customize, and execute your software development workflows (CI/CD)br
 
+# How this project work
+
+This project has one endpoint to register images, it writes that image in a storage, register the information in 
+a database and send the identification in a messaging service to be async processed. This endpoint return an 
+identification marked with processing status.
+
+The async process will be started when the queue receives the message. The routine get the identification message 
+to will recovery the information of database and recovery the image to will be process. The process send to label 
+image detection service the image, and the response will be recorded in database and finally will notify the 
+messaging service in other exchange.
+
+<p align="center">
+    <img src="./images/flux-jynx.png" width="250">
+</p>
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
