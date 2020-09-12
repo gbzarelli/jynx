@@ -4,7 +4,7 @@
 ![Release Version](https://img.shields.io/github/release/gbzarelli/jynx.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/292910e8ba154dcf8fb6eb6198e61cc0)](https://app.codacy.com/manual/gbzarelli/jynx?utm_source=github.com&utm_medium=referral&utm_content=gbzarelli/jynx&utm_campaign=Badge_Grade_Dashboard)
 
-# Jynx ![Build WorkFlow](https://github.com/gbzarelli/jynx/workflows/Jynx%20Build%20Workflow/badge.svg) (Project in developing...)
+# Jynx (Project under development...)![Build WorkFlow](https://github.com/gbzarelli/jynx/workflows/Jynx%20Build%20Workflow/badge.svg) 
 
 <p align="center">
     <img src="./images/jynx.png" height="450">
