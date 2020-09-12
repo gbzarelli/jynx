@@ -4,9 +4,10 @@ import br.com.helpdev.jynx.core.RegisterToDetectAsyncUseCase;
 import br.com.helpdev.jynx.core.entity.LabelDetectorStatus;
 import br.com.helpdev.jynx.core.entity.RegisterImage;
 import br.com.helpdev.jynx.core.entity.Status;
+import br.com.helpdev.jynx.core.exception.FailureToPublishException;
+import br.com.helpdev.jynx.core.interfaces.ImageStorage;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorDatabase;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorPublisher;
-import br.com.helpdev.jynx.core.interfaces.ImageStorage;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -41,7 +42,7 @@ class RegisterToDetectAsyncUseCaseImpl implements RegisterToDetectAsyncUseCase {
 
         try {
             publisher.notifyToProcess(uuid);
-        } catch (final RuntimeException ex) {
+        } catch (final FailureToPublishException ex) {
             database.updateStatus(uuid, Status.FAILURE);
             return LabelDetectorStatus.builder()
                     .status(Status.FAILURE)

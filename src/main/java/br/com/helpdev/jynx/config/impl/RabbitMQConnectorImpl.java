@@ -34,12 +34,12 @@ class RabbitMQConnectorImpl implements RabbitMQConnector {
         init();
     }
 
-    void init() throws IOException, TimeoutException {
+    private void init() throws IOException, TimeoutException {
         connection = factory.newConnection();
         channel = connection.createChannel();
     }
 
-    void onStop(@Observes final ShutdownEvent ev) {
+    protected void onStop(@Observes final ShutdownEvent ev) {
         try {
             channel.close();
             connection.close();

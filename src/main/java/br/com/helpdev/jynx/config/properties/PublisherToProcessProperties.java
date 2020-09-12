@@ -23,4 +23,8 @@ public class PublisherToProcessProperties {
         private boolean durable = true;
     }
 
+    public String getExchangeName() {
+        return exchange.getName();
+    }
+
 }

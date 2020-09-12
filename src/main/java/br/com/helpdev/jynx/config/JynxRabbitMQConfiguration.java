@@ -24,8 +24,6 @@ class JynxRabbitMQConfiguration {
                               final PublisherProcessedProperties publisherProcessedProperties,
                               final SubscriberProperties subscriberProperties) throws IOException {
         this.publisherProcessedProperties = publisherProcessedProperties;
-        System.out.println(publisherToProcessProperties);
-        System.out.println(subscriberProperties);
         this.connector = connector;
         this.publisherToProcessProperties = publisherToProcessProperties;
         this.subscriberProperties = subscriberProperties;
