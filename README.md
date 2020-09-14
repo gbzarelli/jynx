@@ -3,7 +3,6 @@
 ![Stars](https://img.shields.io/github/stars/gbzarelli/jynx.svg) 
 ![Release Version](https://img.shields.io/github/release/gbzarelli/jynx.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e1e3fc1bed3498e8b55aff82c503b92)](https://app.codacy.com/manual/gbzarelli/jynx?utm_source=github.com&utm_medium=referral&utm_content=gbzarelli/jynx&utm_campaign=Badge_Grade_Dashboard)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/292910e8ba154dcf8fb6eb6198e61cc0)](https://app.codacy.com/manual/gbzarelli/jynx?utm_source=github.com&utm_medium=referral&utm_content=gbzarelli/jynx&utm_campaign=Badge_Grade_Dashboard)
 
 # Jynx (Project under development...)![Build WorkFlow](https://github.com/gbzarelli/jynx/workflows/Jynx%20Build%20Workflow/badge.svg) 
 
