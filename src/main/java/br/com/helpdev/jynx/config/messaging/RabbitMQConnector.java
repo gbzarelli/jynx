@@ -1,4 +1,4 @@
-package br.com.helpdev.jynx.config;
+package br.com.helpdev.jynx.config.messaging;
 
 import com.rabbitmq.client.Channel;
 

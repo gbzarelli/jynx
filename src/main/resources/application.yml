@@ -1,9 +1,13 @@
 quarkus:
   datasource:
-    url: ${DATABASE_URL}
-    driver: ${DATABASE_DRIVER:org.postgresql.Driver}
+    jdbc:
+      url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
+    db-kind: postgresql
+  hibernate-orm:
+    database:
+      generation: drop-and-create
 
 rabbitmq:
   host: ${RABBITMQ_HOST}

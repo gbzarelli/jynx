@@ -1,4 +1,4 @@
-package br.com.helpdev.jynx.core;
+package br.com.helpdev.jynx.core.usecase;
 
 import br.com.helpdev.jynx.core.entity.LabelDetectorStatus;
 

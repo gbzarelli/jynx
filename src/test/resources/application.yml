@@ -1,12 +1,37 @@
 quarkus:
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/jynx-db}
-    driver: ${DATABASE_DRIVER:org.postgresql.Driver}
-    username: ${DATABASE_USERNAME:jynx-username}
+    jdbc:
+      url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/jynx-db}
+    username: ${DATABASE_USERNAME:postgres}
     password: ${DATABASE_PASSWORD:jynx-password}
+    db-kind: postgresql
+  hibernate-orm:
+    database:
+      generation: drop-and-create
 
 rabbitmq:
   host: ${RABBITMQ_HOST:localhost}
   vhost: ${RABBITMQ_VHOST:jynx}
   username: ${RABBITMQ_USERNAME:jynx-username}
   password: ${RABBITMQ_PASSWORD:jynx-password}
+
+  publisher:
+    to-process:
+      exchange:
+        name: jynx-to-process-image-exchange
+        type: topic
+        durable: true
+      routing-key: uuid
+
+    processed:
+      exchange:
+        name: jynx-processed-image-exchange
+        type: topic
+        durable: true
+      routing-key: uuid
+
+  subscriber:
+    queue:
+      name: label-detect-queue
+      durable: true
+    routing-key: uuid

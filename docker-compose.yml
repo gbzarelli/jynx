@@ -20,6 +20,7 @@ services:
     container_name: jynx-postgre-db
     restart: always
     environment:
+      POSTGRES_DB: jynx-db
       POSTGRES_PASSWORD: jynx-password
     expose:
       - 5432

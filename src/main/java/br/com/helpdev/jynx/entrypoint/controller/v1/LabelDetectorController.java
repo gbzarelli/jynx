@@ -1,6 +1,6 @@
 package br.com.helpdev.jynx.entrypoint.controller.v1;
 
-import br.com.helpdev.jynx.core.RegisterToDetectAsyncUseCase;
+import br.com.helpdev.jynx.core.usecase.RegisterToDetectAsyncUseCase;
 import br.com.helpdev.jynx.core.entity.LabelDetectorStatus;
 import br.com.helpdev.jynx.entrypoint.controller.v1.objects.MultipartBody;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;

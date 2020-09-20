@@ -1,6 +1,6 @@
-package br.com.helpdev.jynx.dataprovider.publisher;
+package br.com.helpdev.jynx.dataprovider.messaging;
 
-import br.com.helpdev.jynx.config.RabbitMQConnector;
+import br.com.helpdev.jynx.config.messaging.RabbitMQConnector;
 import br.com.helpdev.jynx.config.properties.PublisherToProcessProperties;
 import br.com.helpdev.jynx.core.exception.FailureToPublishException;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorPublisher;

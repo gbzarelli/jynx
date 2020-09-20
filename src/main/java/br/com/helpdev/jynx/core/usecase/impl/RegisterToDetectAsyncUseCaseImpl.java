@@ -1,6 +1,6 @@
-package br.com.helpdev.jynx.core.impl;
+package br.com.helpdev.jynx.core.usecase.impl;
 
-import br.com.helpdev.jynx.core.RegisterToDetectAsyncUseCase;
+import br.com.helpdev.jynx.core.usecase.RegisterToDetectAsyncUseCase;
 import br.com.helpdev.jynx.core.entity.LabelDetectorStatus;
 import br.com.helpdev.jynx.core.entity.RegisterImage;
 import br.com.helpdev.jynx.core.entity.Status;

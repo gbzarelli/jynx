@@ -1,9 +1,9 @@
 package br.com.helpdev.jynx.entrypoint.messaging;
 
-import br.com.helpdev.jynx.config.RabbitMQConnector;
+import br.com.helpdev.jynx.config.messaging.RabbitMQConnector;
 import br.com.helpdev.jynx.config.properties.PublisherProcessedProperties;
 import br.com.helpdev.jynx.config.properties.SubscriberProperties;
-import br.com.helpdev.jynx.core.LabelDetectUseCase;
+import br.com.helpdev.jynx.core.usecase.LabelDetectUseCase;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DefaultConsumer;

@@ -1,6 +1,6 @@
-package br.com.helpdev.jynx.core.impl;
+package br.com.helpdev.jynx.core.usecase.impl;
 
-import br.com.helpdev.jynx.core.LabelDetectUseCase;
+import br.com.helpdev.jynx.core.usecase.LabelDetectUseCase;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.enterprise.context.ApplicationScoped;
