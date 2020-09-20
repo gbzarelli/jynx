@@ -24,6 +24,7 @@ jobs:
         ports:
           - 5432:5432
         env:
+          POSTGRES_DB: jynx-db
           POSTGRES_PASSWORD: jynx-password
         # Set health checks to wait until postgres has started
         options: >-
