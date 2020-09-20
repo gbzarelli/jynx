@@ -3,8 +3,9 @@
 ![Stars](https://img.shields.io/github/stars/gbzarelli/jynx.svg) 
 ![Release Version](https://img.shields.io/github/release/gbzarelli/jynx.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e1e3fc1bed3498e8b55aff82c503b92)](https://app.codacy.com/manual/gbzarelli/jynx?utm_source=github.com&utm_medium=referral&utm_content=gbzarelli/jynx&utm_campaign=Badge_Grade_Dashboard)
+![Build WorkFlow](https://github.com/gbzarelli/jynx/workflows/Jynx%20Build%20Workflow/badge.svg) 
 
-# Jynx (Project under development...)![Build WorkFlow](https://github.com/gbzarelli/jynx/workflows/Jynx%20Build%20Workflow/badge.svg) 
+# Jynx (Project under development...) 
 
 <p align="center">
     <img src="./images/jynx.png" height="450">
@@ -23,9 +24,10 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 - [`Quarkus`](https://quarkus.io/) - Framework
 - [`PostgreSQL`](https://www.postgresql.org) - Database
 - [`RabbitMQ`](https://www.rabbitmq.com) - Messaging Server
+- [`ArchUnit`](https://www.archunit.org) - Unit test your Java architecture 
 - [`GCP Vision`](https://cloud.google.com/vision) - Google Cloud Machine Learn
 - [`GCP Storage`](https://cloud.google.com/storage) - Google Cloud Storage
-- [`ORM Hibernate / Panache`](https://quarkus.io/guides/hibernate-orm-panache) - Hibernate ORM is the de facto JPA implementation
+- [`Hibernate ORM with Panache`](https://quarkus.io/guides/hibernate-orm-panache) - Hibernate ORM is the de facto JPA implementation
 - [`GitHub Actions`](https://docs.github.com/en/actions) - Automate, customize, and execute your software development workflows (CI/CD)br
 
 # How this project work
@@ -43,9 +45,28 @@ messaging service in other exchange.
     <img src="./images/flux-jynx.png" width="250">
 </p>
 
+# Architecture
+
+The architecture used in this project was based on `Clean Architecture` but more flexible with only one layer separated by packages.
+
+<p align="center">
+    <img src="./images/helpdev-clean-arch.png" height="450">
+    <br>
+    <a href="https://medium.com/luizalabs/descomplicando-a-clean-architecture-cf4dfc4a1ac6">
+    Article about Clean Architecture by Guilherme Zarelli</a>
+</p>
+
+To guarantee this architecture, the dependency `ArchUnit` will be used.
+
+<p align="center">
+    <img src="./images/archunit.png" height="380">
+    <br>
+</p>
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
+
 ```
 ./gradlew quarkusDev
 ```

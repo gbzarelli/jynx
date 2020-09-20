@@ -1,24 +1,26 @@
-package br.com.helpdev.jynx.config.properties;
+package br.com.helpdev.jynx.dataprovider.messaging.properties;
 
 import io.quarkus.arc.config.ConfigProperties;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@ConfigProperties(prefix = "rabbitmq.subscriber")
+@ConfigProperties(prefix = "rabbitmq.publisher.processed")
 @Getter
 @Setter
 @ToString
-public class SubscriberProperties {
+public class PublisherProcessedProperties {
 
-    private Queue queue;
+    private Exchange exchange;
     private String routingKey;
 
     @Getter
     @Setter
     @ToString
-    public static class Queue {
+    public static class Exchange {
         private String name;
+        private String type;
         private boolean durable = true;
     }
+
 }

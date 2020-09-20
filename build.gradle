@@ -30,6 +30,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
     testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'com.tngtech.archunit:archunit-junit5:0.14.1'
     testImplementation 'io.rest-assured:rest-assured'
 }
 

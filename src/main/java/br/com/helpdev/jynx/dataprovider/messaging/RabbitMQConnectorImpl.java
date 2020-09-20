@@ -1,10 +1,9 @@
-package br.com.helpdev.jynx.config.messaging.impl;
+package br.com.helpdev.jynx.dataprovider.messaging;
 
-import br.com.helpdev.jynx.config.messaging.RabbitMQConnector;
-import br.com.helpdev.jynx.config.properties.PublisherProcessedProperties;
-import br.com.helpdev.jynx.config.properties.PublisherToProcessProperties;
-import br.com.helpdev.jynx.config.properties.RabbitMQConfigProperties;
-import br.com.helpdev.jynx.config.properties.SubscriberProperties;
+import br.com.helpdev.jynx.dataprovider.messaging.properties.PublisherProcessedProperties;
+import br.com.helpdev.jynx.dataprovider.messaging.properties.PublisherToProcessProperties;
+import br.com.helpdev.jynx.dataprovider.messaging.properties.RabbitMQConfigProperties;
+import br.com.helpdev.jynx.dataprovider.messaging.properties.SubscriberProperties;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -19,7 +18,7 @@ import java.util.concurrent.TimeoutException;
 
 @Startup
 @ApplicationScoped
-class JynxRabbitMQConnector implements RabbitMQConnector {
+class RabbitMQConnectorImpl implements RabbitMQConnector {
 
     private final Connection connection;
     private final Channel channel;
@@ -29,7 +28,7 @@ class JynxRabbitMQConnector implements RabbitMQConnector {
     private final PublisherProcessedProperties publisherProcessedProperties;
 
     @Inject
-    JynxRabbitMQConnector(final RabbitMQConfigProperties config,
+    RabbitMQConnectorImpl(final RabbitMQConfigProperties config,
                           final PublisherToProcessProperties publisherToProcessProperties,
                           final PublisherProcessedProperties publisherProcessedProperties,
                           final SubscriberProperties subscriberProperties) throws IOException, TimeoutException {
@@ -52,8 +51,6 @@ class JynxRabbitMQConnector implements RabbitMQConnector {
     }
 
     void initJynxConfigurations() throws IOException {
-        final var channel = getChannel();
-
         channel.exchangeDeclare(publisherToProcessProperties.getExchange().getName(),
                 publisherToProcessProperties.getExchange().getType(),
                 publisherToProcessProperties.getExchange().isDurable()

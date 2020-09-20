@@ -1,7 +1,6 @@
 package br.com.helpdev.jynx.dataprovider.messaging;
 
-import br.com.helpdev.jynx.config.messaging.RabbitMQConnector;
-import br.com.helpdev.jynx.config.properties.PublisherToProcessProperties;
+import br.com.helpdev.jynx.dataprovider.messaging.properties.PublisherToProcessProperties;
 import br.com.helpdev.jynx.core.exception.FailureToPublishException;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorPublisher;
 
@@ -13,14 +12,14 @@ import java.util.UUID;
 import static java.text.MessageFormat.format;
 
 @ApplicationScoped
-public class RabbitMQLabelDetectorPublisher implements LabelDetectorPublisher {
+public class RabbitMQLabelDetectorPublisherImpl implements LabelDetectorPublisher {
 
     private final RabbitMQConnector rabbit;
     private final PublisherToProcessProperties properties;
 
     @Inject
-    RabbitMQLabelDetectorPublisher(final RabbitMQConnector rabbit,
-                                   final PublisherToProcessProperties properties) {
+    RabbitMQLabelDetectorPublisherImpl(final RabbitMQConnector rabbit,
+                                       final PublisherToProcessProperties properties) {
         this.rabbit = rabbit;
         this.properties = properties;
     }
