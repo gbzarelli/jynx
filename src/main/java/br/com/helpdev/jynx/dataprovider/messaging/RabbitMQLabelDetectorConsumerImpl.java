@@ -40,7 +40,7 @@ public class RabbitMQLabelDetectorConsumerImpl implements LabelDetectorConsumer 
                                        final Envelope envelope,
                                        final AMQP.BasicProperties properties,
                                        final byte[] body) throws IOException {
-                consumer.handleDelivery(envelope, body);
+                consumer.handleDelivery(body);
                 getChannel().basicAck(envelope.getDeliveryTag(), false);
             }
         };

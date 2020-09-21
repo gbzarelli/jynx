@@ -4,7 +4,6 @@ import br.com.helpdev.jynx.core.usecase.LabelDetectUseCase;
 import br.com.helpdev.jynx.entrypoint.messaging.ConsumerListener;
 import br.com.helpdev.jynx.entrypoint.messaging.LabelDetectorConsumer;
 import br.com.helpdev.jynx.entrypoint.messaging.ProcessedImagePublisher;
-import com.rabbitmq.client.Envelope;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -30,9 +29,8 @@ public class LabelDetectorHandlerProcessor implements ConsumerListener {
     }
 
     @Override
-    public void handleDelivery(final Envelope envelope,
-                               final byte[] body) {
-        final var uuid = UUID.fromString(new String(body));
+    public void handleDelivery(final byte[] payload) {
+        final var uuid = UUID.fromString(new String(payload));
         try {
             labelDetectUseCase.process(uuid);
             notifyProcessedMessage(uuid);

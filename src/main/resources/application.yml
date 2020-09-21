@@ -41,10 +41,11 @@ rabbitmq:
 "%dev":
   quarkus:
     datasource:
-      url: jdbc:postgresql://localhost:5432/jynx-db
-      driver: org.postgresql.Driver
-      username: jynx-username
+      jdbc:
+        url: jdbc:postgresql://localhost:5432/jynx-db
+      username: postgres
       password: jynx-password
+      db-kind: postgresql
 
   rabbitmq:
     host: localhost
