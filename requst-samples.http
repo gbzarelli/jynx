@@ -1,0 +1,18 @@
+#================================
+# Register image to label detect
+#================================
+POST localhost:8080/v1/label-detector
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="fileName"
+Content-Type: text/plain
+
+Bike.jpg
+--WebAppBoundary
+--WebAppBoundary
+Content-Disposition: form-data; name="file"
+
+< /home/gbzarelli/Pictures/Screenshot%20from%202020-05-28%2012-50-41.png
+--WebAppBoundary--
+

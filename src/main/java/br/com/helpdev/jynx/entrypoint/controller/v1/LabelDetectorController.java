@@ -1,7 +1,7 @@
 package br.com.helpdev.jynx.entrypoint.controller.v1;
 
-import br.com.helpdev.jynx.core.usecase.RegisterToDetectAsyncUseCase;
 import br.com.helpdev.jynx.core.entity.LabelDetectorStatus;
+import br.com.helpdev.jynx.core.usecase.RegisterToDetectAsyncUseCase;
 import br.com.helpdev.jynx.entrypoint.controller.v1.objects.MultipartBody;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
@@ -42,7 +42,7 @@ public class LabelDetectorController {
 
     private Response created(final LabelDetectorStatus uuid) {
         return Response.created(URI.create(
-                format(ROOT_PATH.concat("/%s"), uuid.toString())
+                format(ROOT_PATH.concat("/%s"), uuid.getUuid().toString())
         )).build();
     }
 

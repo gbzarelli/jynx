@@ -1,6 +1,5 @@
 package br.com.helpdev.jynx.core.usecase.impl;
 
-import br.com.helpdev.jynx.core.usecase.RegisterToDetectAsyncUseCase;
 import br.com.helpdev.jynx.core.entity.LabelDetectorStatus;
 import br.com.helpdev.jynx.core.entity.RegisterImage;
 import br.com.helpdev.jynx.core.entity.Status;
@@ -8,6 +7,8 @@ import br.com.helpdev.jynx.core.exception.FailureToPublishException;
 import br.com.helpdev.jynx.core.interfaces.ImageStorage;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorDatabase;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorPublisher;
+import br.com.helpdev.jynx.core.usecase.RegisterToDetectAsyncUseCase;
+import lombok.SneakyThrows;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -29,13 +30,14 @@ class RegisterToDetectAsyncUseCaseImpl implements RegisterToDetectAsyncUseCase {
         this.publisher = publisher;
     }
 
+    @SneakyThrows
     @Override
     public LabelDetectorStatus registerImageToLabelDetect(final InputStream image,
                                                           final String fileName) {
-        final var path = imageStorage.write(image);
+        final var path = imageStorage.write(image, fileName);
 
         final var uuid = database.registerImage(RegisterImage.builder()
-                .path(path)
+                .savedImage(path)
                 .imageName(fileName)
                 .status(Status.PROCESSING)
                 .build());

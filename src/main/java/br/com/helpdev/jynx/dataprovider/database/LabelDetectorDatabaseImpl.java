@@ -20,7 +20,7 @@ class LabelDetectorDatabaseImpl implements LabelDetectorDatabase {
         final var labelDetectorEntity = LabelDetectorEntity.builder()
                 .imageEntity(ImageEntity.builder()
                         .imageName(registerImage.getImageName())
-                        .path(registerImage.getPath().toString())
+                        .path(registerImage.getSavedImage().toString())
                         .build())
                 .status(registerImage.getStatus())
                 .build();

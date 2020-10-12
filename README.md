@@ -63,13 +63,36 @@ To guarantee this architecture, the dependency `ArchUnit` will be used.
     <br>
 </p>
 
+## Environments
+
+| ENV                            	| Description             	| Default value   	|
+|--------------------------------	|-------------------------	|-----------------	|
+| DATABASE_URL                   	| Database URL            	| IN DEVELOP MODE 	|
+| DATABASE_USERNAME              	| Database username       	| IN DEVELOP MODE 	|
+| DATABASE_PASSWORD              	| Database Password       	| IN DEVELOP MODE 	|
+| RABBITMQ_HOST                  	| RabbitMQ Host           	| IN DEVELOP MODE 	|
+| RABBITMQ_VHOST                 	| RabbitMQ Vhost          	| IN DEVELOP MODE 	|
+| RABBITMQ_USERNAME              	| RabbitMQ username       	| IN DEVELOP MODE 	|
+| RABBITMQ_PASSWORD              	| RabbitMQ password       	| IN DEVELOP MODE 	|
+| GOOGLE_APPLICATION_CREDENTIALS 	| File of GCP Credentials 	| NO              	|
+
 ## Running the application in dev mode
+
+You can run the infrastructure needed for this project using the (`docker-compose.yml`)[./docker-compose.yml]
+
+```
+docker-compose up -d
+```
 
 You can run your application in dev mode that enables live coding using:
 
 ```
 ./gradlew quarkusDev
 ```
+
+### Requests Samples
+
+See the request samples in this file: [request-samples.html](./request-samples.html)
 
 ## Packaging and running the application
 

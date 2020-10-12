@@ -25,6 +25,7 @@ dependencies {
 
     implementation 'com.rabbitmq:amqp-client:5.9.0'
     implementation 'com.google.cloud:google-cloud-vision:1.37.1'
+    implementation 'com.google.cloud:google-cloud-storage:1.112.0'
 
     implementation 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'

@@ -1,6 +1,7 @@
 package br.com.helpdev.jynx.dataprovider.database;
 
 import br.com.helpdev.jynx.core.entity.RegisterImage;
+import br.com.helpdev.jynx.core.entity.SavedImage;
 import br.com.helpdev.jynx.core.entity.Status;
 import br.com.helpdev.jynx.dataprovider.database.entity.LabelDetectorEntity;
 import io.quarkus.test.junit.QuarkusTest;
@@ -9,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.wildfly.common.Assert.assertNotNull;
@@ -26,7 +26,8 @@ class LabelDetectorDatabaseImplTest {
     void shouldRegisterImageInDatabaseWithSuccess() {
         final var registerImage = RegisterImage.builder()
                 .imageName("test")
-                .path(Path.of("test"))
+                .savedImage(SavedImage.builder()
+                        .build())
                 .status(Status.FAILURE)
                 .build();
 
@@ -37,7 +38,7 @@ class LabelDetectorDatabaseImplTest {
         assertNotNull(entity);
         assertEquals(registerImage.getStatus(), entity.getStatus());
         assertEquals(registerImage.getImageName(), entity.getImageEntity().getImageName());
-        assertEquals(registerImage.getPath().toString(), entity.getImageEntity().getPath());
+        assertEquals(registerImage.getSavedImage().toString(), entity.getImageEntity().getPath());
     }
 
 }

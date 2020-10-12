@@ -7,10 +7,10 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
-public class LabelDetectorControllerTest {
+class LabelDetectorControllerTest {
 
     @Test
-    public void testHelloEndpoint() {
+    void testHelloEndpoint() {
         given()
                 .when().get(LabelDetectorController.ROOT_PATH)
                 .then()
