@@ -9,32 +9,37 @@ quarkus:
     database:
       generation: drop-and-create
 
-rabbitmq:
-  host: ${RABBITMQ_HOST}
-  vhost: ${RABBITMQ_VHOST}
-  username: ${RABBITMQ_USERNAME}
-  password: ${RABBITMQ_PASSWORD}
+rabbitmq-host: ${RABBITMQ_HOST}
+rabbitmq-virtual-host: ${RABBITMQ_VHOST}
+rabbitmq-username: ${RABBITMQ_USERNAME}
+rabbitmq-password: ${RABBITMQ_PASSWORD}
 
-  publisher:
-    to-process:
-      exchange:
-        name: jynx-to-process-image-exchange
-        type: topic
-        durable: true
-      routing-key: uuid
+mp:
+  messaging:
+    incoming:
+      label-detect:
+        dead-letter-exchange: "amq.direct"
+        dead-letter-routing-key: "dlx"
+        queue:
+          name: label-detect-queue
+        exchange:
+          name: jynx-to-process-image-exchange
+        routing-keys: uuid
 
-    processed:
-      exchange:
-        name: jynx-processed-image-exchange
-        type: topic
-        durable: true
-      routing-key: uuid
+    outgoing:
+      jynx-to-process-image-exchange:
+        connector: smallrye-rabbitmq
+        exchange:
+          name: jynx-to-process-image-exchange
+          type: topic
+        default-routing-key: uuid
 
-  subscriber:
-    queue:
-      name: label-detect-queue
-      durable: true
-    routing-key: uuid
+      image-processed-emitter:
+        connector: smallrye-rabbitmq
+        exchange:
+          name: jynx-processed-image-exchange
+          type: topic
+        default-routing-key: uuid
 
 # Develop configuration file:
 
@@ -47,8 +52,7 @@ rabbitmq:
       password: jynx-password
       db-kind: postgresql
 
-  rabbitmq:
-    host: localhost
-    vhost: jynx
-    username: jynx-username
-    password: jynx-password
+  rabbitmq-host: localhost
+  rabbitmq-virtual-host: jynx
+  rabbitmq-username: jynx-username
+  rabbitmq-password: jynx-password

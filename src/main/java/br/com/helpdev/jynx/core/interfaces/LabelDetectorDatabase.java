@@ -14,5 +14,7 @@ public interface LabelDetectorDatabase {
 
     LabelDetectorInformation getInformation(UUID uuid);
 
+    RegisterImage getRegisteredImage(UUID uuid);
+
     void updateStatus(UUID uuid, Status status);
 }

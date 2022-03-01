@@ -90,6 +90,12 @@ You can run your application in dev mode that enables live coding using:
 ./gradlew quarkusDev
 ```
 
+Access Swagger UI:
+
+```
+http://localhost:8080/q/swagger-ui
+```
+
 ### Requests Samples
 
 See the request samples in this file: [request-samples.html](./request-samples.html)

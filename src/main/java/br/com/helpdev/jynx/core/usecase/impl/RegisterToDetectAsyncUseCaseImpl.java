@@ -35,12 +35,13 @@ class RegisterToDetectAsyncUseCaseImpl implements RegisterToDetectAsyncUseCase {
     public LabelDetectorStatus registerImageToLabelDetect(final InputStream image,
                                                           final String fileName) {
         final var path = imageStorage.write(image, fileName);
-
-        final var uuid = database.registerImage(RegisterImage.builder()
+        final var imageDb = RegisterImage.builder()
                 .savedImage(path)
                 .imageName(fileName)
                 .status(Status.PROCESSING)
-                .build());
+                .build();
+
+        final var uuid = database.registerImage(imageDb);
 
         try {
             publisher.notifyToProcess(uuid);

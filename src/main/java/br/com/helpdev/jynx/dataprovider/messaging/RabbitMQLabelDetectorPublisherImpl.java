@@ -1,39 +1,34 @@
 package br.com.helpdev.jynx.dataprovider.messaging;
 
-import br.com.helpdev.jynx.dataprovider.messaging.properties.PublisherToProcessProperties;
-import br.com.helpdev.jynx.core.exception.FailureToPublishException;
 import br.com.helpdev.jynx.core.interfaces.LabelDetectorPublisher;
+import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.helpers.MultiEmitterProcessor;
+import lombok.extern.slf4j.Slf4j;
+import org.eclipse.microprofile.reactive.messaging.Outgoing;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import java.io.IOException;
 import java.util.UUID;
 
-import static java.text.MessageFormat.format;
-
 @ApplicationScoped
+@Slf4j
 public class RabbitMQLabelDetectorPublisherImpl implements LabelDetectorPublisher {
 
-    private final RabbitMQConnector rabbit;
-    private final PublisherToProcessProperties properties;
-
-    @Inject
-    RabbitMQLabelDetectorPublisherImpl(final RabbitMQConnector rabbit,
-                                       final PublisherToProcessProperties properties) {
-        this.rabbit = rabbit;
-        this.properties = properties;
-    }
+    //Publish sample using @Outgoing asynchronous
+    private final MultiEmitterProcessor<String> emitter = MultiEmitterProcessor.create();
 
     @Override
-    public void notifyToProcess(final UUID uuid) throws FailureToPublishException {
+    public void notifyToProcess(final UUID uuid) {
         try {
-            rabbit.getChannel().basicPublish(properties.getExchangeName(),
-                    properties.getRoutingKey(), null, uuid.toString().getBytes());
-        } catch (IOException e) {
-            throw new FailureToPublishException(
-                    format("Failed to publish UUID {0} in exchange {1}", uuid,
-                            properties.getExchangeName()), e);
+            emitter.emit(uuid.toString());
+        } catch (final Exception exception) {
+            log.error(String.format("Failure in notify to process message - %s", uuid.toString()),
+                    exception);
         }
+    }
+
+    @Outgoing("jynx-to-process-image-exchange")
+    public Multi<String> outgoing() {
+        return Multi.createFrom().publisher(emitter);
     }
 
 }
