@@ -9,29 +9,34 @@ quarkus:
     database:
       generation: drop-and-create
 
-rabbitmq:
-  host: ${RABBITMQ_HOST:localhost}
-  vhost: ${RABBITMQ_VHOST:jynx}
-  username: ${RABBITMQ_USERNAME:jynx-username}
-  password: ${RABBITMQ_PASSWORD:jynx-password}
+rabbitmq-host: ${RABBITMQ_HOST:localhost}
+rabbitmq-virtual-host: ${RABBITMQ_VHOST:jynx}
+rabbitmq-username: ${RABBITMQ_USERNAME:jynx-username}
+rabbitmq-password: ${RABBITMQ_PASSWORD:jynx-password}
 
-  publisher:
-    to-process:
-      exchange:
-        name: jynx-to-process-image-exchange
-        type: topic
-        durable: true
-      routing-key: uuid
+mp:
+  messaging:
+    incoming:
+      label-detect:
+        dead-letter-exchange: "amq.direct"
+        dead-letter-routing-key: "dlx"
+        queue:
+          name: label-detect-queue
+        exchange:
+          name: jynx-to-process-image-exchange
+        routing-keys: uuid
 
-    processed:
-      exchange:
-        name: jynx-processed-image-exchange
-        type: topic
-        durable: true
-      routing-key: uuid
+    outgoing:
+      jynx-to-process-image-exchange:
+        connector: smallrye-rabbitmq
+        exchange:
+          name: jynx-to-process-image-exchange
+          type: topic
+        default-routing-key: uuid
 
-  subscriber:
-    queue:
-      name: label-detect-queue
-      durable: true
-    routing-key: uuid
+      image-processed-emitter:
+        connector: smallrye-rabbitmq
+        exchange:
+          name: jynx-processed-image-exchange
+          type: topic
+        default-routing-key: uuid

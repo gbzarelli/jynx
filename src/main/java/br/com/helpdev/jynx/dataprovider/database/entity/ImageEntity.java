@@ -15,7 +15,9 @@ import javax.persistence.Entity;
 @Getter
 public class ImageEntity extends PanacheEntity {
 
+    private String bucketId;
     private String path;
+    private String location;
     private String imageName;
 
 }
