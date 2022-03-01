@@ -25,7 +25,9 @@ public class LabelDetectorQueueListener {
     }
 
     @Incoming("label-detect")
-    //@Blocking Indicate to run in another thread (solve the problem with worker in same project: https://groups.google.com/g/quarkus-dev/c/l_YcN3hv7b0?pli=1 )
+    //The @Blocking Annotation used to indicate that the annotated method is inherently blocking and
+    //so should not be executed on a non-blockable thread (I/O thread, event loops...).
+    // https://groups.google.com/g/quarkus-dev/c/l_YcN3hv7b0?pli=1
     @Blocking
     public CompletionStage<Void> incoming(Message<String> message) {
         final var uuid = UUID.fromString(message.getPayload());

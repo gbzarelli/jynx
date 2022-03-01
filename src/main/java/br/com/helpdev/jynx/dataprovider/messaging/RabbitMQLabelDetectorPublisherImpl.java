@@ -13,7 +13,7 @@ import java.util.UUID;
 @Slf4j
 public class RabbitMQLabelDetectorPublisherImpl implements LabelDetectorPublisher {
 
-    //Publish sample using @Outgoing asynchronous
+    //Publish sample using reactive approach with @Outgoing
     private final MultiEmitterProcessor<String> emitter = MultiEmitterProcessor.create();
 
     @Override

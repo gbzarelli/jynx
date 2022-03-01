@@ -12,7 +12,7 @@ import java.util.UUID;
 @Slf4j
 public class RabbitMQProcessedImagePublisherImpl implements ProcessedImagePublisher {
 
-    //Publish sample using @Channel synchronous
+    //Publish sample using @Channel
     @Channel("image-processed-emitter")
     Emitter<String> imageProcessedEmitter;
 
